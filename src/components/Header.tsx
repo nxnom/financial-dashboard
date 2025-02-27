@@ -14,7 +14,7 @@ const Header = () => {
   );
 
   return (
-    <header className="sticky top-0 z-100 -mx-6 mb-2 flex items-center justify-between bg-white px-6 pt-4 pb-4 lg:bg-[#F7F6FB] dark:bg-[#2D2351] dark:text-[#DFDDEB] lg:dark:bg-[#392D6B]">
+    <header className="sticky top-0 right-0 left-0 z-100 mb-4 flex items-center justify-between bg-white px-6 py-6 shadow-lg shadow-gray-300/50 xl:mb-2 xl:bg-[#F7F6FB] xl:shadow-none dark:bg-[#2D2351] dark:text-[#DFDDEB] dark:shadow-black/10 xl:dark:bg-[#392D6B]">
       <div className="flex items-center gap-x-2">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -30,7 +30,7 @@ const Header = () => {
         <h1 className="hidden text-2xl md:block">Dashboard</h1>
         <img
           src="/logo.png"
-          className="block w-10 object-contain sm:w-14 md:hidden"
+          className="block w-14 object-contain md:hidden"
           alt="Wallet"
         />
       </div>
@@ -45,7 +45,7 @@ const Header = () => {
           <MagnifyingGlassIcon className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
         </div>
 
-        <div className="flex h-8 items-center space-x-1.5 rounded-lg border-gray-200 py-2 lg:border lg:bg-white lg:px-4 dark:border-gray-700 dark:bg-[#56459E]">
+        <div className="flex h-8 items-center space-x-1.5 rounded-lg border-gray-200 py-2 lg:border lg:bg-white lg:px-4 lg:dark:border-gray-700 lg:dark:bg-[#56459E]">
           <div className="relative mr-12 hidden items-center space-x-3 lg:flex">
             <img
               src="/avatar.png"

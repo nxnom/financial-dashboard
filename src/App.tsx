@@ -34,14 +34,14 @@ function App() {
         <Sidebar />
         <main
           className={classNames(
-            "flex-1 px-3 pb-6 transition-all duration-300 sm:px-6",
+            "flex-1 pb-6 transition-all duration-300",
             "xl:ml-64",
-            sidebarOpen ? "ml-0" : "ml-0",
+            sidebarOpen && "ml-0",
           )}
         >
           <Header />
 
-          <div className="flex flex-col gap-3 xl:flex-row">
+          <div className="flex flex-col gap-3 px-3 sm:px-6 xl:flex-row">
             <div className="w-full space-y-3 xl:flex-[3]">
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 <StatCard title="Income" data={mockData.stats.income} />

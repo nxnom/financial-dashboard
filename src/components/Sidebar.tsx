@@ -44,7 +44,7 @@ const Sidebar = () => {
     <>
       <div
         className={classNames(
-          "fixed inset-0 z-30 bg-black/50 transition-opacity xl:hidden",
+          "fixed inset-0 z-30 bg-transparent xl:hidden",
           sidebarOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         onClick={() => setSidebarOpen(false)}
@@ -54,12 +54,12 @@ const Sidebar = () => {
         className={classNames(
           "fixed top-0 left-0 z-40 h-screen bg-white dark:bg-[#2D2351]",
           "transition-transform duration-300 ease-in-out",
-          "xl:w-64 xl:translate-x-0",
+          "w-full pt-24 sm:w-64 xl:w-64 xl:translate-x-0 xl:pt-0",
           "shadow-lg shadow-gray-300/50 dark:shadow-black/10",
-          sidebarOpen ? "w-64 translate-x-0" : "w-64 -translate-x-full",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="mb-8 flex items-center px-6 pt-6 opacity-0 xl:opacity-100">
+        <div className="hidden items-center px-6 py-4 xl:flex">
           <img
             src="/logo.png"
             className="h-12 w-12 object-contain"
