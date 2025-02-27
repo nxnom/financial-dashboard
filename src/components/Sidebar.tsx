@@ -16,7 +16,10 @@ import { useEffect } from "react";
 
 const Sidebar = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
-  const [sidebarOpen, setSidebarOpen] = useQueryState("sidebar", parseAsBoolean.withDefault(false));
+  const [sidebarOpen, setSidebarOpen] = useQueryState(
+    "sidebar",
+    parseAsBoolean.withDefault(false),
+  );
 
   const menuItems = [
     { icon: HomeIcon, label: "Dashboard", active: true },
@@ -35,43 +38,45 @@ const Sidebar = () => {
     } else {
       document.body.className = "overflow-auto";
     }
-  }, [sidebarOpen])
+  }, [sidebarOpen]);
 
   return (
     <>
-      <div 
+      <div
         className={classNames(
-          "fixed inset-0 bg-black/50 z-30 transition-opacity xl:hidden",
-          sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          "fixed inset-0 z-30 bg-black/50 transition-opacity xl:hidden",
+          sidebarOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         onClick={() => setSidebarOpen(false)}
       />
 
-      <aside 
+      <aside
         className={classNames(
-          "fixed left-0 top-0 h-screen bg-white dark:bg-[#2D2351] z-40",
+          "fixed top-0 left-0 z-40 h-screen bg-white dark:bg-[#2D2351]",
           "transition-transform duration-300 ease-in-out",
-          "xl:translate-x-0 xl:w-64",
+          "xl:w-64 xl:translate-x-0",
           "shadow-lg shadow-gray-300/50 dark:shadow-black/10",
-          sidebarOpen ? "translate-x-0 w-64" : "-translate-x-full w-64"
+          sidebarOpen ? "w-64 translate-x-0" : "w-64 -translate-x-full",
         )}
       >
-        <div className="flex items-center mb-8 px-6 pt-6 opacity-0 xl:opacity-100">
-          <img src='/logo.png' className="w-12 h-12 object-contain" alt="Wallet" />
-          <span className="ml-2 text-lg text-gray-900 mt-1 dark:text-white">Wallet</span>
+        <div className="mb-8 flex items-center px-6 pt-6 opacity-0 xl:opacity-100">
+          <img
+            src="/logo.png"
+            className="h-12 w-12 object-contain"
+            alt="Wallet"
+          />
+          <span className="mt-1 ml-2 text-lg text-gray-900 dark:text-white">
+            Wallet
+          </span>
         </div>
 
         <nav className="space-y-1 text-sm">
           {menuItems.map((item) => (
-            <MenuItem 
-              key={item.label} 
-              {...item} 
-              
-            />
+            <MenuItem key={item.label} {...item} />
           ))}
         </nav>
 
-        <div className="w-full pt-5 mt-5 border-t border-gray-200 dark:border-gray-700 space-y-2">
+        <div className="mt-5 w-full space-y-2 border-t border-gray-200 pt-5 dark:border-gray-700">
           <MenuItem icon={Cog6ToothIcon} label="Settings" />
           <MenuItem icon={ArrowRightStartOnRectangleIcon} label="Log out" />
         </div>
@@ -80,12 +85,12 @@ const Sidebar = () => {
           <button
             type="button"
             onClick={toggleDarkMode}
-            className="flex items-center p-3 gap-x-4 cursor-pointer"
+            className="flex cursor-pointer items-center gap-x-4 p-3"
           >
-            <div className="w-10 h-5 rounded-full bg-gray-200 dark:bg-[#5B48A8] overflow-visible">
+            <div className="h-5 w-10 overflow-visible rounded-full bg-gray-200 dark:bg-[#5B48A8]">
               <div
                 className={classNames(
-                  "w-5 h-5 rounded-full transform transition-transform",
+                  "h-5 w-5 transform rounded-full transition-transform",
                   "bg-gradient-to-r from-[#8CBDF8] to-[#9F54FF] dark:from-[#85BEFA] dark:to-[#B473FE]",
                   isDarkMode ? "translate-x-6" : "",
                 )}
@@ -109,7 +114,10 @@ interface MenuItemProps {
 }
 
 function MenuItem({ icon: Icon, label, badge, active }: MenuItemProps) {
-  const [, setSidebarOpen] = useQueryState("sidebar", parseAsBoolean.withDefault(false));
+  const [, setSidebarOpen] = useQueryState(
+    "sidebar",
+    parseAsBoolean.withDefault(false),
+  );
 
   return (
     <a
@@ -119,13 +127,13 @@ function MenuItem({ icon: Icon, label, badge, active }: MenuItemProps) {
         setSidebarOpen(false);
       }}
       className={classNames(
-        "flex items-center px-7 py-3 bg-gradient-to-r",
+        "flex items-center bg-gradient-to-r px-7 py-3",
         active
           ? "from-[#E9F3FE] to-[#DED3FB] dark:from-[#2E4975] dark:to-[#7B42C6]"
           : "hover:from-[#E9F3FE] hover:to-[#DED3FB] hover:dark:from-[#2E4975] hover:dark:to-[#7B42C6]",
       )}
     >
-      <Icon className="w-5 h-5" />
+      <Icon className="h-5 w-5" />
       <span className="ml-3">{label}</span>
       {badge && (
         <span

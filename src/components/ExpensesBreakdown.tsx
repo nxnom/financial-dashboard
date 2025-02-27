@@ -29,11 +29,11 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
   const currentData = data[selectedPeriod];
 
   return (
-    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[280px] shadow-lg shadow-gray-300/50 dark:shadow-black/10">
-      <div className="flex justify-between items-center mb-2">
+    <div className="flex h-[280px] flex-col rounded-2xl bg-white p-4 shadow-lg shadow-gray-300/50 dark:bg-[#56459E] dark:shadow-black/10">
+      <div className="mb-2 flex items-center justify-between">
         <h3 className="text-lg font-medium">Expenses</h3>
         <select
-          className="text-sm text-gray-500 dark:text-gray-400 bg-transparent"
+          className="bg-transparent text-sm text-gray-500 dark:text-gray-400"
           value={selectedPeriod}
           onChange={(e) =>
             setSelectedPeriod(e.target.value as "thisMonth" | "previousMonth")
@@ -45,7 +45,7 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
       </div>
 
       <div className="flex items-center justify-center">
-        <div className="w-4/10 relative">
+        <div className="relative w-4/10">
           <ResponsiveContainer width="100%" height={160}>
             <PieChart>
               <Pie
@@ -65,7 +65,7 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
               </Pie>
             </PieChart>
           </ResponsiveContainer>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-center">
             <div className="text-md font-normal">
               ${currentData.total.toFixed(2)}
             </div>
@@ -74,10 +74,10 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
 
         <div className="w-6/10 pl-2">
           {currentData.categories.map((category, index) => (
-            <div key={index} className="flex justify-between items-center mb-1">
+            <div key={index} className="mb-1 flex items-center justify-between">
               <div className="flex items-center">
                 <div
-                  className="w-2 h-2 rounded-full mr-2"
+                  className="mr-2 h-2 w-2 rounded-full"
                   style={{ backgroundColor: category.color }}
                 />
                 <span className="text-xs">{category.name}</span>

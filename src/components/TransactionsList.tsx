@@ -39,35 +39,25 @@ const TransactionsList = ({ data }: TransactionsListProps) => {
   const getIcon = (type: string) => {
     switch (type) {
       case "transfer":
-        return (
-          <ArrowRightIcon className="w-4 h-4 text-[#A195AD]" />
-        );
+        return <ArrowRightIcon className="h-4 w-4 text-[#A195AD]" />;
       case "taxi":
-        return (
-          <TruckIcon className="w-4 h-4 text-[#A195AD]" />
-        );
+        return <TruckIcon className="h-4 w-4 text-[#A195AD]" />;
       case "supermarket":
-        return (
-          <ShoppingBagIcon className="w-4 h-4 text-[#A195AD]" />
-        );
+        return <ShoppingBagIcon className="h-4 w-4 text-[#A195AD]" />;
       case "reward":
-        return (
-          <CurrencyDollarIcon className="w-4 h-4 text-[#A195AD]" />
-        );
+        return <CurrencyDollarIcon className="h-4 w-4 text-[#A195AD]" />;
       default:
-        return (
-          <CurrencyDollarIcon className="w-4 h-4 text-[#A195AD]" />
-        );
+        return <CurrencyDollarIcon className="h-4 w-4 text-[#A195AD]" />;
     }
   };
 
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[280px] overflow-hidden flex flex-col shadow-lg shadow-gray-300/50 dark:shadow-black/10">
-      <div className="flex justify-between items-center mb-4">
+    <div className="flex h-[280px] flex-col overflow-hidden rounded-2xl bg-white p-4 shadow-lg shadow-gray-300/50 dark:bg-[#56459E] dark:shadow-black/10">
+      <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-medium">Transactions</h3>
         <select
           className={classNames(
-            "text-sm bg-transparent",
+            "bg-transparent text-sm",
             "text-gray-500 dark:text-gray-400",
           )}
           value={selectedPeriod}
@@ -80,22 +70,26 @@ const TransactionsList = ({ data }: TransactionsListProps) => {
         </select>
       </div>
 
-      <div className="flex-1 overflow-y-auto" style={{
-        scrollbarWidth: "none",
-      }}>
+      <div
+        className="flex-1 overflow-y-auto"
+        style={{
+          scrollbarWidth: "none",
+        }}
+      >
         <div className="space-y-1">
           {currentData.map((transaction) => (
-            <div key={transaction.id} className="pb-1 border-b-[0.5px] border-gray-100 dark:border-gray-700 last:border-b-0">
+            <div
+              key={transaction.id}
+              className="border-b-[0.5px] border-gray-100 pb-1 last:border-b-0 dark:border-gray-700"
+            >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <Avatar>
-                    {getIcon(transaction.type)}
-                    </Avatar>
+                  <Avatar>{getIcon(transaction.type)}</Avatar>
                   <div>
-                    <div className="font-medium text-sm line-clamp-1">
+                    <div className="line-clamp-1 text-sm font-medium">
                       {transaction.name}
                     </div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">
+                    <div className="line-clamp-1 text-xs text-gray-500 dark:text-gray-400">
                       {transaction.category}
                     </div>
                   </div>

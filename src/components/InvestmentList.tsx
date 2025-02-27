@@ -41,12 +41,12 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[280px] overflow-hidden flex flex-col shadow-lg shadow-gray-300/50 dark:shadow-black/10">
-      <div className="flex justify-between items-center mb-4">
+    <div className="flex h-[280px] flex-col overflow-hidden rounded-2xl bg-white p-4 shadow-lg shadow-gray-300/50 dark:bg-[#56459E] dark:shadow-black/10">
+      <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-medium">Investment</h3>
         <select
           className={classNames(
-            "text-sm bg-transparent",
+            "bg-transparent text-sm",
             "text-gray-500 dark:text-gray-400",
           )}
           value={selectedPeriod}
@@ -60,30 +60,38 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
         </select>
       </div>
 
-      <div className="flex-1 overflow-y-auto" style={{
-        scrollbarWidth: "none",
-      }}>
+      <div
+        className="flex-1 overflow-y-auto"
+        style={{
+          scrollbarWidth: "none",
+        }}
+      >
         <div className="space-y-1">
           {currentData.map((investment) => (
-            <div key={investment.id} className="pb-1 border-b-[0.5px] border-gray-100 dark:border-gray-700 last:border-b-0">
+            <div
+              key={investment.id}
+              className="border-b-[0.5px] border-gray-100 pb-1 last:border-b-0 dark:border-gray-700"
+            >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Avatar>
-                    {<img
+                    {
+                      <img
                         src={investment.logo}
                         alt={investment.symbol}
                         className={classNames(
-                          "w-5 h-5 object-contain",
-                          investment.symbol === "AAPL" && "w-4 h-4",
-                          investment.symbol === "NFLX" && "w-6 h-6",
+                          "h-5 w-5 object-contain",
+                          investment.symbol === "AAPL" && "h-4 w-4",
+                          investment.symbol === "NFLX" && "h-6 w-6",
                         )}
-                      />}
+                      />
+                    }
                   </Avatar>
                   <div>
-                    <div className="font-medium text-sm line-clamp-1">
+                    <div className="line-clamp-1 text-sm font-medium">
                       {investment.symbol}
                     </div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">
+                    <div className="line-clamp-1 text-xs text-gray-500 dark:text-gray-400">
                       {investment.name}
                     </div>
                   </div>
@@ -91,14 +99,14 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
                 <div className="flex items-center">
                   <div
                     className={classNames(
-                      "flex items-center mr-4",
+                      "mr-4 flex items-center",
                       investment.change > 0 ? "text-blue-500" : "text-red-500",
                     )}
                   >
                     {investment.change > 0 ? (
-                      <ArrowUpIcon className="w-3 h-3 mr-1 rotate-45" />
+                      <ArrowUpIcon className="mr-1 h-3 w-3 rotate-45" />
                     ) : (
-                      <ArrowDownIcon className="w-3 h-3 mr-1 -rotate-45" />
+                      <ArrowDownIcon className="mr-1 h-3 w-3 -rotate-45" />
                     )}
                     <span className="text-xs">
                       {formatChange(investment.change)}

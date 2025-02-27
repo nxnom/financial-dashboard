@@ -35,8 +35,8 @@ interface CustomTooltipProps {
 const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white dark:bg-[#56459E] p-3 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-        <p className="text-gray-600 dark:text-gray-300 mb-2">{label}</p>
+      <div className="rounded-lg border border-gray-100 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-[#56459E]">
+        <p className="mb-2 text-gray-600 dark:text-gray-300">{label}</p>
         {payload.map((entry, index) => (
           <p key={index} className="text-sm" style={{ color: entry.color }}>
             {entry.name}: ${entry.value.toLocaleString()}
@@ -55,13 +55,13 @@ const FinancialAnalysis = ({ data }: FinancialAnalysisProps) => {
   const currentData = data[selectedPeriod];
 
   return (
-    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[310px] shadow-lg shadow-gray-300/50 dark:shadow-black/10">
-      <div className="flex justify-between items-baseline mb-3">
+    <div className="flex h-[310px] flex-col rounded-2xl bg-white p-4 shadow-lg shadow-gray-300/50 dark:bg-[#56459E] dark:shadow-black/10">
+      <div className="mb-3 flex items-baseline justify-between">
         <h3 className="text-lg font-medium whitespace-pre-wrap">
           {"Financial\nanalysis"}
         </h3>
         <select
-          className="text-sm text-gray-500 dark:text-gray-400 bg-transparent"
+          className="bg-transparent text-sm text-gray-500 dark:text-gray-400"
           value={selectedPeriod}
           onChange={(e) =>
             setSelectedPeriod(e.target.value as "thisMonth" | "previousMonth")
@@ -72,21 +72,15 @@ const FinancialAnalysis = ({ data }: FinancialAnalysisProps) => {
         </select>
       </div>
 
-      <div className="flex items-center space-x-4 mb-6">
+      <div className="mb-6 flex items-center space-x-4">
         <div className="flex items-center">
-          <div
-            className="w-3 h-3 rounded-full 
-                    bg-gradient-to-b from-[#FE7177] to-[#E652FE] mr-2"
-          />
+          <div className="mr-2 h-3 w-3 rounded-full bg-gradient-to-b from-[#FE7177] to-[#E652FE]" />
           <span className="text-sm text-gray-500 dark:text-gray-400">
             Expenses
           </span>
         </div>
         <div className="flex items-center">
-          <div
-            className="w-3 h-3 rounded-full 
-                    bg-gradient-to-b from-[#A632FF] to-[#5ABFFF] mr-2"
-          ></div>
+          <div className="mr-2 h-3 w-3 rounded-full bg-gradient-to-b from-[#A632FF] to-[#5ABFFF]"></div>
           <span className="text-sm text-gray-500 dark:text-gray-400">
             Income
           </span>

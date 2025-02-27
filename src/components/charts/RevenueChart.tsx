@@ -29,8 +29,8 @@ interface CustomTooltipProps extends TooltipProps<number, string> {
 const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white dark:bg-[#56459E] p-3 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-        <p className="text-gray-600 dark:text-gray-300 mb-2">{label}</p>
+      <div className="rounded-lg border border-gray-100 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-[#56459E]">
+        <p className="mb-2 text-gray-600 dark:text-gray-300">{label}</p>
         {payload.map((entry, index) => (
           <p key={index} className="text-sm" style={{ color: entry.color }}>
             {entry.name === "revenue2021" ? "2021: " : "2020: "}$
@@ -48,18 +48,18 @@ const RevenueChart = ({ data }: { data: DataPoint[] }) => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[310px] shadow-lg shadow-gray-300/50 dark:shadow-black/10">
-      <div className="flex justify-between items-center mb-6">
+    <div className="flex h-[310px] flex-col rounded-2xl bg-white p-4 shadow-lg shadow-gray-300/50 dark:bg-[#56459E] dark:shadow-black/10">
+      <div className="mb-6 flex items-center justify-between">
         <h3 className="text-lg font-medium">Revenue analysis</h3>
         <div className="flex items-center space-x-4">
           <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
+            <div className="mr-2 h-3 w-3 rounded-full bg-purple-500"></div>
             <span className="text-sm text-gray-500 dark:text-gray-400">
               2021
             </span>
           </div>
           <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-pink-500 mr-2"></div>
+            <div className="mr-2 h-3 w-3 rounded-full bg-pink-500"></div>
             <span className="text-sm text-gray-500 dark:text-gray-400">
               2020
             </span>

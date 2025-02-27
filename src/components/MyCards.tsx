@@ -20,33 +20,35 @@ const MyCards = ({ cards }: MyCardsProps) => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
 
   const formatCardNumber = (number: string) => {
-    return number.match(/.{1,4}/g)?.join(' ') || number;
+    return number.match(/.{1,4}/g)?.join(" ") || number;
   };
 
   const nextCardIndex = (activeCardIndex + 1) % cards.length;
 
   return (
-    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-3 sm:p-4 overflow-hidden h-auto min-h-[260px] sm:min-h-[300px] md:min-h-[270px] shadow-lg shadow-gray-300/50 dark:shadow-black/10">
-      <div className="flex justify-between items-center mb-2 sm:mb-4">
-        <h3 className="text-base sm:text-lg font-medium">My cards</h3>
-        <button className="text-xs sm:text-sm text-gray-500 dark:text-gray-300 flex items-center">
-          add card <PlusIcon className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
+    <div className="flex h-auto min-h-[260px] flex-col overflow-hidden rounded-2xl bg-white p-3 shadow-lg shadow-gray-300/50 sm:min-h-[300px] sm:p-4 md:min-h-[270px] dark:bg-[#56459E] dark:shadow-black/10">
+      <div className="mb-2 flex items-center justify-between sm:mb-4">
+        <h3 className="text-base font-medium sm:text-lg">My cards</h3>
+        <button className="flex items-center text-xs text-gray-500 sm:text-sm dark:text-gray-300">
+          add card <PlusIcon className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
         </button>
       </div>
 
-      <div 
-        className="relative flex-1 mb-2 sm:mb-4 cursor-pointer aspect-video"
+      <div
+        className="relative mb-2 aspect-video flex-1 cursor-pointer sm:mb-4"
         onClick={() => setActiveCardIndex(nextCardIndex)}
       >
-        <div 
+        <div
           className={classNames(
-            "absolute rounded-xl p-2 sm:p-3 flex flex-col justify-between w-[calc(100%-16px)] sm:w-[calc(100%-20px)] aspect-video z-10 opacity-90 flex flex-col justify-end top-[24px] sm:top-[30px] left-[16px] sm:left-[20px]",
-            cards[nextCardIndex].color
+            "absolute top-[24px] left-[16px] z-10 flex aspect-video w-[calc(100%-16px)] flex-col justify-between justify-end rounded-xl p-2 opacity-90 sm:top-[30px] sm:left-[20px] sm:w-[calc(100%-20px)] sm:p-3",
+            cards[nextCardIndex].color,
           )}
         >
-           <div className="text-white">
-            <div className="text-xs sm:text-base mb-1 sm:mb-2">{formatCardNumber(cards[activeCardIndex].number)}</div>
-            <div className="flex justify-between items-center">
+          <div className="text-white">
+            <div className="mb-1 text-xs sm:mb-2 sm:text-base">
+              {formatCardNumber(cards[activeCardIndex].number)}
+            </div>
+            <div className="flex items-center justify-between">
               <div className="text-[10px] sm:text-xs">
                 {cards[nextCardIndex].cardholderName}
               </div>
@@ -57,34 +59,43 @@ const MyCards = ({ cards }: MyCardsProps) => {
           </div>
         </div>
 
-        <div 
+        <div
           className={classNames(
-            "absolute rounded-xl p-3 sm:p-5 flex flex-col justify-between w-[calc(100%-24px)] sm:w-[calc(100%-30px)] aspect-video",
-            "transition-all duration-300 shadow-lg",
-            cards[activeCardIndex].color
+            "absolute flex aspect-video w-[calc(100%-24px)] flex-col justify-between rounded-xl p-3 sm:w-[calc(100%-30px)] sm:p-5",
+            "shadow-lg transition-all duration-300",
+            cards[activeCardIndex].color,
           )}
           style={{
             zIndex: 20,
           }}
         >
-          <div className="flex justify-between items-start">
+          <div className="flex items-start justify-between">
             <div>
-              <div className="text-xs sm:text-sm text-white">Balance</div>
-              <div className="text-sm sm:text-lg font-semibold text-white mb-1 sm:mb-2">
-                ${cards[activeCardIndex].balance.toLocaleString('en-US', {minimumFractionDigits: 2})}
+              <div className="text-xs text-white sm:text-sm">Balance</div>
+              <div className="mb-1 text-sm font-semibold text-white sm:mb-2 sm:text-lg">
+                $
+                {cards[activeCardIndex].balance.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                })}
               </div>
             </div>
-            <div className="text-white text-base sm:text-xl font-bold">
+            <div className="text-base font-bold text-white sm:text-xl">
               {cards[activeCardIndex].type === "visa" && "VISA"}
               {cards[activeCardIndex].type === "mastercard" && (
-               <img src="/mastercard-logo.png" alt="Mastercard" className="w-8 h-5 sm:w-12 sm:h-7 object-contain" />
+                <img
+                  src="/mastercard-logo.png"
+                  alt="Mastercard"
+                  className="h-5 w-8 object-contain sm:h-7 sm:w-12"
+                />
               )}
             </div>
           </div>
-          
+
           <div className="text-white">
-            <div className="text-xs sm:text-sm line-clamp-1">{formatCardNumber(cards[activeCardIndex].number)}</div>
-            <div className="flex justify-between items-center">
+            <div className="line-clamp-1 text-xs sm:text-sm">
+              {formatCardNumber(cards[activeCardIndex].number)}
+            </div>
+            <div className="flex items-center justify-between">
               <div className="text-[10px] sm:text-xs">
                 {cards[activeCardIndex].cardholderName}
               </div>
@@ -96,8 +107,8 @@ const MyCards = ({ cards }: MyCardsProps) => {
         </div>
       </div>
 
-      <div className="flex justify-center mt-6 sm:mt-3">
-        <Pagination 
+      <div className="mt-6 flex justify-center sm:mt-3">
+        <Pagination
           items={cards.map((_, index) => index)}
           activeItem={activeCardIndex}
           onChange={setActiveCardIndex}

@@ -3,9 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 html {
-    @apply bg-white lg:bg-[#F7F6FB];
+  @apply bg-white lg:bg-[#F7F6FB];
 }
 
 html:has(.dark) {
-    @apply bg-[#2D2351] lg:bg-[#392D6B];
+  @apply bg-[#2D2351] lg:bg-[#392D6B];
 }
