@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
+import { useTheme } from "./contexts/ThemeContext";
 import { classNames } from "./utils/classNames";
 import StatCard from "./components/cards/StatCard";
 import RevenueChart from "./components/charts/RevenueChart";
@@ -11,17 +11,11 @@ import InvestmentList from "./components/InvestmentList";
 import MyCards from "./components/MyCards";
 import QuickTransfers from "./components/QuickTransfers";
 import Goals from "./components/Goals";
+import { parseAsBoolean, useQueryState } from "nuqs";
 
 function App() {
-  return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
-  );
-}
-
-function AppContent() {
   const { isDarkMode } = useTheme();
+  const [sidebarOpen] = useQueryState("sidebar", parseAsBoolean.withDefault(false));
 
   return (
     <div
@@ -30,14 +24,13 @@ function AppContent() {
         isDarkMode ? "dark bg-[#392D6B] text-white" : "bg-[#F7F6FB]",
       )}
     >
-      <style>
-        {`html {
-          background-color: ${isDarkMode ? "#392D6B" : "#F7F6FB"};
-        }`}
-      </style>
       <div className="flex">
         <Sidebar />
-        <main className="flex-1 px-6 pb-6 ml-64">
+        <main className={classNames(
+          "flex-1 px-6 pb-6 transition-all duration-300",
+          "lg:ml-64",
+          sidebarOpen ? "ml-0" : "ml-0"
+        )}>
           <Header />
 
           <div className="flex gap-3">

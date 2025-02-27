@@ -2,12 +2,32 @@ import {
   MagnifyingGlassIcon,
   BellIcon,
   EnvelopeIcon,
+  XMarkIcon,
+  Bars3Icon,
 } from "@heroicons/react/24/outline";
+import { parseAsBoolean, useQueryState } from "nuqs";
 
 const Header = () => {
+  const [sidebarOpen, setSidebarOpen] = useQueryState("sidebar", parseAsBoolean.withDefault(false));
+
   return (
-    <header className="sticky top-0 z-100 -mx-6 px-6 pt-4 pb-6 flex items-center justify-between dark:text-[#DFDDEB] dark:bg-[#392D6B] bg-[#F7F6FB]">
+    <header className="sticky top-0 z-100 -mx-6 px-6 pt-4 pb-4 mb-2 flex items-center justify-between dark:text-[#DFDDEB] bg-white lg:bg-[#F7F6FB] dark:bg-[#2D2351] lg:dark:bg-[#392D6B]">
+      <div className="flex items-center gap-x-2">
+      <button
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        className="lg:hidden p-2 rounded-md bg-white dark:bg-[#473D7B] shadow-md"
+        aria-label="Toggle sidebar"
+      >
+        {sidebarOpen ? (
+          <XMarkIcon className="w-5 h-5" />
+        ) : (
+          <Bars3Icon className="w-5 h-5" />
+        )}
+      </button>
       <h1 className="text-2xl font-semibold">Dashboard</h1>
+
+      </div>
+
 
       <div className="flex items-center space-x-4">
         <div className="relative">
