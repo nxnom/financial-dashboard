@@ -5,6 +5,7 @@ import { classNames } from "./utils/classNames";
 import StatCard from "./components/cards/StatCard";
 import RevenueChart from "./components/charts/RevenueChart";
 import FinancialAnalysis from "./components/charts/FinancialAnalysis";
+import ExpensesBreakdown from "./components/ExpensesBreakdown";
 
 function App() {
   return (
@@ -129,9 +130,38 @@ function AppContent() {
               </div>
 
               {/* Bottom section */}
-              <div className="grid grid-cols-3 gap-3">
-                {/* <ExpensesBreakdown />
-                <TransactionsList />
+              <div className="grid grid-cols-12 gap-3">
+                <div className="col-span-5">
+                  <ExpensesBreakdown 
+                    data={{
+                      thisMonth: {
+                        total: 1525.61,
+                        change: "16% less",
+                        categories: [
+                          { name: "Supermarkets", value: 186.65, color: "#5667FF" },
+                          { name: "Transfers", value: 207.82, color: "#64C8FF" },
+                          { name: "Restaurants", value: 197.25, color: "#9D50FF" },
+                          { name: "Cash", value: 48.00, color: "#E661FF" },
+                          { name: "Study", value: 100.85, color: "#FF54B0" },
+                          { name: "Other", value: 93.04, color: "#392D6B" }
+                        ]
+                      },
+                      previousMonth: {
+                        total: 1820.45,
+                        change: "8% more",
+                        categories: [
+                          { name: "Supermarkets", value: 220.30, color: "#5667FF" },
+                          { name: "Transfers", value: 245.15, color: "#64C8FF" },
+                          { name: "Restaurants", value: 310.50, color: "#9D50FF" },
+                          { name: "Cash", value: 380.00, color: "#E661FF" },
+                          { name: "Study", value: 550.20, color: "#FF54B0" },
+                          { name: "Other", value: 114.30, color: "#392D6B" }
+                        ]
+                      }
+                    }}
+                  />
+                </div>
+                {/* <TransactionsList />
                 <InvestmentList /> */}
               </div>
             </div>
