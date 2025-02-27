@@ -33,7 +33,7 @@ const Header = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="h-8 text-sm pr-10 pl-4 py-2 rounded-lg bg-white dark:bg-[#56459E] focus:outline-none border border-gray-200 dark:border-gray-700"
+            className="h-8 text-sm placeholder:text-gray-300 dark:placeholder:text-gray-500 pr-10 pl-4 py-2 rounded-lg bg-white dark:bg-[#56459E] focus:outline-none border border-gray-200 dark:border-gray-700"
           />
           <MagnifyingGlassIcon className="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
         </div>
