@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar'
 import { ThemeProvider, useTheme } from './contexts/ThemeContext'
 import { classNames } from './utils/classNames'
 import StatCard from './components/cards/StatCard'
+import RevenueChart from './components/charts/RevenueChart'
 
 function App() {
   return (
@@ -61,8 +62,21 @@ function AppContent() {
 
               {/* Charts section */}
               <div className="grid grid-cols-3 gap-3">
-                <div className="col-span-2 bg-red-500">
-                  {/* <RevenueChart /> */}
+                <div className="col-span-2">
+                  <RevenueChart data={[
+                    { month: 'Jan', revenue2021: 4000, revenue2020: 10000 },
+                    { month: 'Feb', revenue2021: 9000, revenue2020: 14000 },
+                    { month: 'Mar', revenue2021: 6000, revenue2020: 13000 },
+                    { month: 'Apr', revenue2021: 10000, revenue2020: 16000 },
+                    { month: 'May', revenue2021: 14000, revenue2020: 6000 },
+                    { month: 'Jun', revenue2021: 7000, revenue2020: 17000 },
+                    { month: 'Jul', revenue2021: 8000, revenue2020: 10000 },
+                    { month: 'Aug', revenue2021: 6000, revenue2020: 4000 },
+                    { month: 'Sep', revenue2021: 7000, revenue2020: 8000 },
+                    { month: 'Oct', revenue2021: 14000, revenue2020: 10000 },
+                    { month: 'Nov', revenue2021: 10000, revenue2020: 7000 },
+                    { month: 'Dec', revenue2021: 15000, revenue2020: 12000 },
+                  ]} />
                 </div>
                 <div className="col-span-1">
                   {/* <FinancialAnalysis /> */}
