@@ -27,7 +27,7 @@ const Header = () => {
             <Bars3Icon className="h-5 w-5" />
           )}
         </button>
-        <h1 className="hidden text-2xl font-semibold md:block">Dashboard</h1>
+        <h1 className="hidden text-2xl md:block">Dashboard</h1>
         <img
           src="/logo.png"
           className="block w-10 object-contain sm:w-14 md:hidden"

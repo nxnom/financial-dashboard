@@ -74,7 +74,7 @@
       "total": 1525.61,
       "change": "16% less",
       "categories": [
-        { "name": "Supermarkets", "value": 186.65, "color": "#5667FF" },
+        { "name": "Supermarket", "value": 6.65, "color": "#5667FF" },
         { "name": "Transfers", "value": 207.82, "color": "#64C8FF" },
         { "name": "Restaurants", "value": 197.25, "color": "#9D50FF" },
         { "name": "Cash", "value": 48.0, "color": "#E661FF" },
