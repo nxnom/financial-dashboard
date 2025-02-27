@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   BarChart,
   Bar,
@@ -12,6 +13,13 @@ interface DataPoint {
   month: string;
   income: number;
   expenses: number;
+}
+
+interface FinancialAnalysisProps {
+  data: {
+    thisMonth: DataPoint[];
+    previousMonth: DataPoint[];
+  };
 }
 
 interface CustomTooltipProps {
@@ -40,16 +48,27 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
   return null;
 };
 
-const FinancialAnalysis = ({ data }: { data: DataPoint[] }) => {
+const FinancialAnalysis = ({ data }: FinancialAnalysisProps) => {
+  const [selectedPeriod, setSelectedPeriod] = useState<
+    "thisMonth" | "previousMonth"
+  >("thisMonth");
+  const currentData = data[selectedPeriod];
+
   return (
     <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[334px]">
       <div className="flex justify-between items-baseline mb-3">
         <h3 className="text-lg font-medium whitespace-pre-wrap">
           {"Financial\nanalysis"}
         </h3>
-        <select className="text-sm text-gray-500 dark:text-gray-400 bg-transparent">
-          <option>this month</option>
-          <option>last month</option>
+        <select
+          className="text-sm text-gray-500 dark:text-gray-400 bg-transparent"
+          value={selectedPeriod}
+          onChange={(e) =>
+            setSelectedPeriod(e.target.value as "thisMonth" | "previousMonth")
+          }
+        >
+          <option value="thisMonth">this month</option>
+          <option value="previousMonth">last month</option>
         </select>
       </div>
 
@@ -76,11 +95,7 @@ const FinancialAnalysis = ({ data }: { data: DataPoint[] }) => {
 
       <div className="flex-1">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart 
-            data={data} 
-            barGap={4} 
-            barCategoryGap={6}
-          >
+          <BarChart data={currentData} barGap={4} barCategoryGap={6}>
             <defs>
               <linearGradient id="expensesGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#FE7177" stopOpacity={1} />
@@ -111,23 +126,15 @@ const FinancialAnalysis = ({ data }: { data: DataPoint[] }) => {
               stroke="#9CA3AF"
               vertical={false}
             />
-            <Tooltip 
+            <Tooltip
               content={<CustomTooltip />}
               cursor={{
-                fill: 'rgba(208, 207, 207, 0.2)',
-                radius: 4
+                fill: "rgba(208, 207, 207, 0.2)",
+                radius: 4,
               }}
             />
-            <Bar
-              dataKey="expenses"
-              fill="url(#expensesGradient)"
-              radius={4}
-            />
-            <Bar
-              dataKey="income"
-              fill="url(#incomeGradient)"
-              radius={4}
-            />
+            <Bar dataKey="expenses" fill="url(#expensesGradient)" radius={4} />
+            <Bar dataKey="income" fill="url(#incomeGradient)" radius={4} />
           </BarChart>
         </ResponsiveContainer>
       </div>

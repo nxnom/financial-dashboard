@@ -43,13 +43,13 @@ function AppContent() {
                     thisMonth: {
                       amount: 6558.67,
                       percentageChange: 16,
-                      chartData: [0, 30, 25, 29, 15, 33, 50, 35, 55]
+                      chartData: [0, 30, 25, 29, 15, 33, 50, 35, 55],
                     },
                     previousMonth: {
                       amount: 5890.42,
                       percentageChange: -40,
-                      chartData: [0, 25, 20, 35, 22, 28, 45, 30, 50]
-                    }
+                      chartData: [0, 25, 20, 35, 22, 28, 45, 30, 50],
+                    },
                   }}
                 />
                 <StatCard
@@ -58,13 +58,13 @@ function AppContent() {
                     thisMonth: {
                       amount: 1420.05,
                       percentageChange: -36,
-                      chartData: [0, 28, 22, 26, 14, 31, 48]
+                      chartData: [0, 28, 22, 26, 14, 31, 48],
                     },
                     previousMonth: {
                       amount: 1850.32,
                       percentageChange: -28,
-                      chartData: [0, 35, 30, 40, 32, 38, 52]
-                    }
+                      chartData: [0, 35, 30, 40, 32, 38, 52],
+                    },
                   }}
                 />
                 <StatCard
@@ -73,13 +73,13 @@ function AppContent() {
                     thisMonth: {
                       amount: 950.35,
                       percentageChange: 12,
-                      chartData: [0, 16, 14, 25, 20, 21, 12, 30, 25, 60]
+                      chartData: [0, 16, 14, 25, 20, 21, 12, 30, 25, 60],
                     },
                     previousMonth: {
-                      amount: 875.20,
+                      amount: 875.2,
                       percentageChange: 8,
-                      chartData: [0, 12, 10, 20, 15, 18, 10, 25, 20, 50]
-                    }
+                      chartData: [0, 12, 10, 20, 15, 18, 10, 25, 20, 50],
+                    },
                   }}
                 />
               </div>
@@ -106,14 +106,24 @@ function AppContent() {
                 </div>
                 <div className="col-span-1">
                   <FinancialAnalysis
-                    data={[
-                      { month: "Feb", income: 2900, expenses: 2100 },
-                      { month: "Mar", income: 1200, expenses: 400 },
-                      { month: "Apr", income: 2100, expenses: 2500 },
-                      { month: "May", income: 2900, expenses: 2000 },
-                      { month: "Jun", income: 2200, expenses: 1800 },
-                      { month: "Jul", income: 3000, expenses: 2900 },
-                    ]}
+                    data={{
+                      thisMonth: [
+                        { month: "Feb", income: 2900, expenses: 2100 },
+                        { month: "Mar", income: 1200, expenses: 400 },
+                        { month: "Apr", income: 2100, expenses: 2500 },
+                        { month: "May", income: 2900, expenses: 2000 },
+                        { month: "Jun", income: 2200, expenses: 1800 },
+                        { month: "Jul", income: 3000, expenses: 2900 },
+                      ],
+                      previousMonth: [
+                        { month: "Feb", income: 2500, expenses: 1800 },
+                        { month: "Mar", income: 1000, expenses: 600 },
+                        { month: "Apr", income: 1800, expenses: 2200 },
+                        { month: "May", income: 2600, expenses: 1700 },
+                        { month: "Jun", income: 2000, expenses: 1500 },
+                        { month: "Jul", income: 2700, expenses: 2500 },
+                      ],
+                    }}
                   />
                 </div>
               </div>

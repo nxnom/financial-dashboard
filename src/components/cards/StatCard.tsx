@@ -18,13 +18,12 @@ interface StatCardProps {
   };
 }
 
-const StatCard = ({
-  title,
-  data,
-}: StatCardProps) => {
-  const [selectedPeriod, setSelectedPeriod] = useState<'thisMonth' | 'previousMonth'>('thisMonth');
+const StatCard = ({ title, data }: StatCardProps) => {
+  const [selectedPeriod, setSelectedPeriod] = useState<
+    "thisMonth" | "previousMonth"
+  >("thisMonth");
   const { isDarkMode } = useTheme();
-  
+
   const currentData = data[selectedPeriod];
   const isPositive = currentData.percentageChange > 0;
   const chartData = currentData.chartData.map((value) => ({ value }));
@@ -33,10 +32,12 @@ const StatCard = ({
     <div className="relative overflow-hidden bg-white dark:bg-[#56459E] rounded-2xl p-4 border border-gray-100 dark:border-0">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">{title}</h3>
-        <select 
+        <select
           className="text-sm text-gray-500 dark:text-gray-400 bg-transparent"
           value={selectedPeriod}
-          onChange={(e) => setSelectedPeriod(e.target.value as 'thisMonth' | 'previousMonth')}
+          onChange={(e) =>
+            setSelectedPeriod(e.target.value as "thisMonth" | "previousMonth")
+          }
         >
           <option value="thisMonth">this month</option>
           <option value="previousMonth">last month</option>
@@ -46,7 +47,9 @@ const StatCard = ({
       <div className="mb-10">
         <span className="text-xl font-normal">
           ${currentData.amount.toFixed(2).split(".")[0]}
-          <span className="text-xs">.{currentData.amount.toFixed(2).split(".")[1]}</span>
+          <span className="text-xs">
+            .{currentData.amount.toFixed(2).split(".")[1]}
+          </span>
         </span>
       </div>
 
