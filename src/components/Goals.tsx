@@ -4,7 +4,7 @@ import Pagination from "./ui/Pagination";
 import { useState } from "react";
 import Avatar from "./ui/Avatar";
 
-interface Goal {
+export interface Goal {
   id: string;
   name: string;
   icon: "trip" | "house" | "camera";

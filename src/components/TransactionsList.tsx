@@ -9,7 +9,7 @@ import Pagination from "./ui/Pagination";
 import { classNames } from "../utils/classNames";
 import Avatar from "./ui/Avatar";
 
-interface Transaction {
+export interface Transaction {
   id: string;
   name: string;
   category: string;
@@ -19,7 +19,7 @@ interface Transaction {
   paymentMethod: string;
 }
 
-interface TransactionsListProps {
+export interface TransactionsListProps {
   data: {
     today: Transaction[];
     yesterday: Transaction[];

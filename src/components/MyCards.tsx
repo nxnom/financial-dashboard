@@ -3,7 +3,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import Pagination from "./ui/Pagination";
 import { classNames } from "../utils/classNames";
 
-interface Card {
+export interface Card {
   type: "visa" | "mastercard";
   number: string;
   expiryDate: string;
