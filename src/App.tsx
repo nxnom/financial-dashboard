@@ -9,6 +9,7 @@ import ExpensesBreakdown from "./components/ExpensesBreakdown";
 import TransactionsList from "./components/TransactionsList";
 import InvestmentList from "./components/InvestmentList";
 import MyCards from "./components/MyCards";
+import QuickTransfers from "./components/QuickTransfers";
 
 function App() {
   return (
@@ -403,8 +404,26 @@ function AppContent() {
                   }
                 ]}
               />
-              {/* <QuickTransfers />
-              <Goals /> */}
+              <QuickTransfers 
+                contacts={[
+                  {
+                    id: "contact1",
+                    name: "Alexander Abramson",
+                    accountNumber: "1676",
+                  },
+                  {
+                    id: "contact2",
+                    name: "Julia Davidson",
+                    accountNumber: "2675",
+                  },
+                  {
+                    id: "contact3",
+                    name: "Andrew Evans",
+                    accountNumber: "0987",
+                  }
+                ]}
+              />
+              {/* <Goals /> */}
             </div>
           </div>
         </main>

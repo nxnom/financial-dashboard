@@ -60,9 +60,9 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        <div className="space-y-1">
+        <div className="space-y-3">
           {currentData.map((investment) => (
-            <div key={investment.id}>
+            <div key={investment.id} className="pb-3 border-b-[0.5px] border-gray-100 dark:border-gray-700 last:border-b-0">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div
@@ -129,13 +129,11 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
                   </div>
                 </div>
               </div>
-              <div className="h-px bg-gray-100 dark:bg-gray-700 mt-4"></div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Pagination dots */}
       <div className="mt-4">
         <Pagination
           items={["today", "yesterday", "week"]}
