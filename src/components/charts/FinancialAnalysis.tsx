@@ -55,7 +55,7 @@ const FinancialAnalysis = ({ data }: FinancialAnalysisProps) => {
   const currentData = data[selectedPeriod];
 
   return (
-    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[310px]">
+    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[310px] shadow-lg shadow-gray-300/50 dark:shadow-black/10">
       <div className="flex justify-between items-baseline mb-3">
         <h3 className="text-lg font-medium whitespace-pre-wrap">
           {"Financial\nanalysis"}

@@ -41,7 +41,7 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[280px] overflow-hidden flex flex-col">
+    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[280px] overflow-hidden flex flex-col shadow-lg shadow-gray-300/50 dark:shadow-black/10">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">Investment</h3>
         <select

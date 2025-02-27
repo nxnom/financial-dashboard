@@ -52,6 +52,7 @@ const Sidebar = () => {
           "fixed left-0 top-0 h-screen bg-white dark:bg-[#2D2351] z-40",
           "transition-transform duration-300 ease-in-out",
           "xl:translate-x-0 xl:w-64",
+          "shadow-lg shadow-gray-300/50 dark:shadow-black/10",
           sidebarOpen ? "translate-x-0 w-64" : "-translate-x-full w-64"
         )}
       >

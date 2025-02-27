@@ -29,7 +29,7 @@ const StatCard = ({ title, data }: StatCardProps) => {
   const chartData = currentData.chartData.map((value) => ({ value }));
 
   return (
-    <div className="relative overflow-hidden bg-white dark:bg-[#56459E] rounded-2xl p-3 sm:p-4 border border-gray-100 dark:border-0 h-[140px] sm:h-[159px]">
+    <div className="relative overflow-hidden bg-white dark:bg-[#56459E] rounded-2xl p-3 sm:p-4 border border-gray-100 dark:border-0 h-[140px] sm:h-[159px] shadow-lg shadow-gray-300/50 dark:shadow-black/10">
       <div className="flex justify-between items-center mb-2 sm:mb-4">
         <h3 className="text-base sm:text-lg font-medium">{title}</h3>
         <select

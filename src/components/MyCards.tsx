@@ -26,7 +26,7 @@ const MyCards = ({ cards }: MyCardsProps) => {
   const nextCardIndex = (activeCardIndex + 1) % cards.length;
 
   return (
-    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-3 sm:p-4 overflow-hidden h-auto min-h-[260px] sm:min-h-[300px] md:min-h-[270px]">
+    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-3 sm:p-4 overflow-hidden h-auto min-h-[260px] sm:min-h-[300px] md:min-h-[270px] shadow-lg shadow-gray-300/50 dark:shadow-black/10">
       <div className="flex justify-between items-center mb-2 sm:mb-4">
         <h3 className="text-base sm:text-lg font-medium">My cards</h3>
         <button className="text-xs sm:text-sm text-gray-500 dark:text-gray-300 flex items-center">

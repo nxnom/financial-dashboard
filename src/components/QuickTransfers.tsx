@@ -13,7 +13,7 @@ interface QuickTransfersProps {
 
 const QuickTransfers = ({ contacts }: QuickTransfersProps) => {
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-3 sm:p-4 overflow-hidden h-auto sm:min-h-[240px]">
+    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-3 sm:p-4 overflow-hidden h-auto sm:min-h-[240px]  shadow-lg shadow-gray-300/50 dark:shadow-black/10">
       <div className="flex justify-between items-center mb-2 sm:mb-4">
         <h3 className="text-base sm:text-lg font-medium">Quick transfers</h3>
         <button className="text-xs sm:text-sm text-gray-500 dark:text-gray-300 flex items-center">
