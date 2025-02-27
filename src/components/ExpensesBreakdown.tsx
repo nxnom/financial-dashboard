@@ -52,8 +52,8 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
                 data={currentData.categories}
                 cx="50%"
                 cy="50%"
-                innerRadius={45}
-                outerRadius={50}
+                innerRadius={40}
+                outerRadius={45}
                 startAngle={90}
                 endAngle={-270}
                 dataKey="value"

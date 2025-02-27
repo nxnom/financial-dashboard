@@ -11,11 +11,11 @@ const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useQueryState("sidebar", parseAsBoolean.withDefault(false));
 
   return (
-    <header className="sticky top-0 z-100 -mx-6 px-6 pt-4 pb-4 mb-2 flex items-center justify-between dark:text-[#DFDDEB] bg-white lg:bg-[#F7F6FB] dark:bg-[#2D2351] lg:dark:bg-[#392D6B]">
+    <header className="flex sticky top-0 z-100 -mx-6 px-6 pt-4 pb-4 mb-2 items-center justify-between dark:text-[#DFDDEB] bg-white lg:bg-[#F7F6FB] dark:bg-[#2D2351] lg:dark:bg-[#392D6B]">
       <div className="flex items-center gap-x-2">
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="lg:hidden p-2 rounded-md bg-white dark:bg-[#473D7B] shadow-md"
+        className="xl:hidden p-2 rounded-md bg-white dark:bg-[#473D7B] shadow-md"
         aria-label="Toggle sidebar"
       >
         {sidebarOpen ? (
@@ -24,12 +24,11 @@ const Header = () => {
           <Bars3Icon className="w-5 h-5" />
         )}
       </button>
-      <h1 className="text-2xl font-semibold">Dashboard</h1>
-
+        <h1 className="text-2xl font-semibold hidden md:block">Dashboard</h1>
+        <img src='/logo.png' className="w-10 sm:w-14 object-contain block md:hidden" alt="Wallet" />
       </div>
 
-
-      <div className="flex items-center space-x-4">
+      <div className="hidden md:flex items-center space-x-4 ">
         <div className="relative">
           <input
             type="text"
@@ -59,6 +58,15 @@ const Header = () => {
           </button>
         </div>
       </div>
+
+      <div className="md:hidden flex items-center space-x-1">
+          <img
+              src="/avatar.png"
+              alt="Profile"
+              className="w-10 object-contain"
+            />
+            <p className="font-medium text-sm">Hello, Michaela!</p>
+          </div>
     </header>
   );
 };

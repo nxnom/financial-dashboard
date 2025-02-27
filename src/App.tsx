@@ -28,15 +28,15 @@ function App() {
       <div className="flex">
         <Sidebar />
         <main className={classNames(
-          "flex-1 px-6 pb-6 transition-all duration-300",
-          "lg:ml-64",
+          "flex-1 px-3 sm:px-6 pb-6 transition-all duration-300",
+          "xl:ml-64",
           sidebarOpen ? "ml-0" : "ml-0"
         )}>
           <Header />
 
-          <div className="flex flex-col lg:flex-row gap-3">
-            <div className="flex-[3] space-y-3">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="flex flex-col xl:flex-row gap-3">
+            <div className="w-full xl:flex-[3] space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <StatCard
                   title="Income"
                   data={mockData.stats.income}
@@ -73,7 +73,7 @@ function App() {
               </div>
             </div>
 
-            <div className="flex-1 space-y-3">
+            <div className="w-full xl:flex-1 xl:max-w-[350px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-1 gap-2">
               <MyCards cards={mockData.cards as unknown as Card[]} />
               <QuickTransfers contacts={mockData.contacts} />
               <Goals 

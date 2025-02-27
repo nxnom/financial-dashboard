@@ -12,6 +12,7 @@ import {
 import { useTheme } from "../contexts/ThemeContext";
 import { classNames } from "../utils/classNames";
 import { parseAsBoolean, useQueryState } from "nuqs";
+import { useEffect } from "react";
 
 const Sidebar = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
@@ -28,11 +29,19 @@ const Sidebar = () => {
     { icon: QuestionMarkCircleIcon, label: "Support" },
   ];
 
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.className = "overflow-hidden xl:overflow-auto";
+    } else {
+      document.body.className = "overflow-auto";
+    }
+  }, [sidebarOpen])
+
   return (
     <>
       <div 
         className={classNames(
-          "fixed inset-0 bg-black/50 z-30 transition-opacity lg:hidden",
+          "fixed inset-0 bg-black/50 z-30 transition-opacity xl:hidden",
           sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
         onClick={() => setSidebarOpen(false)}
@@ -42,15 +51,13 @@ const Sidebar = () => {
         className={classNames(
           "fixed left-0 top-0 h-screen bg-white dark:bg-[#2D2351] z-40",
           "transition-transform duration-300 ease-in-out",
-          "lg:translate-x-0 md:w-64",
+          "xl:translate-x-0 xl:w-64",
           sidebarOpen ? "translate-x-0 w-64" : "-translate-x-full w-64"
         )}
       >
-        <div className="flex items-center mb-8 px-6 pt-6">
-          <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold">W</span>
-          </div>
-          <span className="ml-3 text-xl font-semibold">Wallet</span>
+        <div className="flex items-center mb-8 px-6 pt-6 opacity-0 xl:opacity-100">
+          <img src='/logo.png' className="w-12 h-12 object-contain" alt="Wallet" />
+          <span className="ml-2 text-lg text-gray-900 mt-1 dark:text-white">Wallet</span>
         </div>
 
         <nav className="space-y-1 text-sm">
@@ -58,11 +65,7 @@ const Sidebar = () => {
             <MenuItem 
               key={item.label} 
               {...item} 
-              onClick={() => {
-                if (window.innerWidth < 1024) {
-                  setSidebarOpen(false);
-                }
-              }}
+              
             />
           ))}
         </nav>
@@ -102,16 +105,17 @@ interface MenuItemProps {
   label: string;
   badge?: number;
   active?: boolean;
-  onClick?: () => void;
 }
 
-function MenuItem({ icon: Icon, label, badge, active, onClick }: MenuItemProps) {
+function MenuItem({ icon: Icon, label, badge, active }: MenuItemProps) {
+  const [, setSidebarOpen] = useQueryState("sidebar", parseAsBoolean.withDefault(false));
+
   return (
     <a
       href="#"
       onClick={(e) => {
         e.preventDefault();
-        if (onClick) onClick();
+        setSidebarOpen(false);
       }}
       className={classNames(
         "flex items-center px-7 py-3 bg-gradient-to-r",
