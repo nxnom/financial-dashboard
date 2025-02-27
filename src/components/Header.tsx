@@ -1,7 +1,7 @@
 import { MagnifyingGlassIcon, BellIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 
 const Header = () => {
-    return <header className="sticky top-0 z-10 -mx-6 px-6 py-4 bg-inherit flex items-center justify-between dark:text-[#DFDDEB]">
+    return <header className="sticky top-0 z-10 -mx-6 px-6 pt-4 pb-8 bg-inherit flex items-center justify-between dark:text-[#DFDDEB]">
         <h1 className="text-2xl font-semibold">Dashboard</h1>
 
         <div className="flex items-center space-x-4">
