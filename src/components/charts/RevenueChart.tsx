@@ -48,7 +48,7 @@ const RevenueChart = ({ data }: { data: DataPoint[] }) => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[320px]">
+    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[310px]">
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-lg font-medium">Revenue analysis</h3>
         <div className="flex items-center space-x-4">
@@ -71,7 +71,7 @@ const RevenueChart = ({ data }: { data: DataPoint[] }) => {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={data}
-            margin={{ top: 5, right: 0, bottom: 5, left: 0 }}
+            margin={{ top: 2, right: 0, bottom: 0, left: 0 }}
           >
             <defs>
               <linearGradient id="revenue2021" x1="0" y1="0" x2="0" y2="1">

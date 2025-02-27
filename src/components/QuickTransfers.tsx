@@ -13,7 +13,7 @@ interface QuickTransfersProps {
 
 const QuickTransfers = ({ contacts }: QuickTransfersProps) => {
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 overflow-hidden h-[260px]">
+    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 overflow-hidden h-[240px]">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">Quick transfers</h3>
         <button className="text-sm text-gray-500 dark:text-gray-300 flex items-center">
@@ -26,7 +26,7 @@ const QuickTransfers = ({ contacts }: QuickTransfersProps) => {
           <div key={contact.id} className="flex items-center justify-between cursor-pointer pb-2 border-b-[0.5px] border-gray-100 dark:border-gray-700 last:border-b-0">
             <div className="flex items-center">
               <Avatar>
-                <span>{contact.name[0].toUpperCase()}</span>
+                <span className="text-[#A195AD]">{contact.name[0].toUpperCase()}</span>
               </Avatar>
               <div>
                 <div className="font-medium text-sm">{contact.name}</div>

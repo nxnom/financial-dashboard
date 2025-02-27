@@ -26,7 +26,7 @@ const MyCards = ({ cards }: MyCardsProps) => {
   const nextCardIndex = (activeCardIndex + 1) % cards.length;
 
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 overflow-hidden h-70">
+    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 overflow-hidden h-[270px]">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">My cards</h3>
         <button className="text-sm text-gray-500 dark:text-gray-300 flex items-center">
@@ -95,11 +95,11 @@ const MyCards = ({ cards }: MyCardsProps) => {
         </div>
       </div>
 
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-3">
         <Pagination 
-          items={cards.map((_, index) => index.toString())}
-          activeItem={activeCardIndex.toString()}
-          onChange={(item) => setActiveCardIndex(parseInt(item))}
+          items={cards.map((_, index) => index)}
+          activeItem={activeCardIndex}
+          onChange={setActiveCardIndex}
         />
       </div>
     </div>

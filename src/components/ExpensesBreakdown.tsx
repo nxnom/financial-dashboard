@@ -29,8 +29,8 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
   const currentData = data[selectedPeriod];
 
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[320px]">
-      <div className="flex justify-between items-center mb-4">
+    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[280px]">
+      <div className="flex justify-between items-center mb-2">
         <h3 className="text-lg font-medium">Expenses</h3>
         <select
           className="text-sm text-gray-500 dark:text-gray-400 bg-transparent"
@@ -46,14 +46,14 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
 
       <div className="flex items-center justify-center">
         <div className="w-4/10 relative">
-          <ResponsiveContainer width="100%" height={200}>
+          <ResponsiveContainer width="100%" height={160}>
             <PieChart>
               <Pie
                 data={currentData.categories}
                 cx="50%"
                 cy="50%"
-                innerRadius={50}
-                outerRadius={55}
+                innerRadius={45}
+                outerRadius={50}
                 startAngle={90}
                 endAngle={-270}
                 dataKey="value"
@@ -66,7 +66,7 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
             </PieChart>
           </ResponsiveContainer>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <div className="text-xl font-semibold">
+            <div className="text-md font-normal">
               ${currentData.total.toFixed(2)}
             </div>
           </div>
@@ -74,13 +74,13 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
 
         <div className="w-6/10 pl-2">
           {currentData.categories.map((category, index) => (
-            <div key={index} className="flex justify-between items-center mb-2">
+            <div key={index} className="flex justify-between items-center mb-1">
               <div className="flex items-center">
                 <div
                   className="w-2 h-2 rounded-full mr-2"
                   style={{ backgroundColor: category.color }}
                 />
-                <span className="text-sm">{category.name}</span>
+                <span className="text-xs">{category.name}</span>
               </div>
               <span className="text-xs">${category.value.toFixed(2)}</span>
             </div>
@@ -88,7 +88,7 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
         </div>
       </div>
 
-      <div className="text-sm text-gray-500 dark:text-gray-400 mb-4 text-center">
+      <div className="text-xs text-gray-500 dark:text-gray-400">
         You have spent {currentData.change} money this week than last week.
       </div>
     </div>

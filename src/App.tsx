@@ -10,6 +10,7 @@ import TransactionsList from "./components/TransactionsList";
 import InvestmentList from "./components/InvestmentList";
 import MyCards from "./components/MyCards";
 import QuickTransfers from "./components/QuickTransfers";
+import Goals from "./components/Goals";
 
 function App() {
   return (
@@ -423,7 +424,45 @@ function AppContent() {
                   }
                 ]}
               />
-              {/* <Goals /> */}
+              <Goals 
+                goals={[
+                  {
+                    id: "goal1",
+                    name: "Trip",
+                    icon: "trip",
+                    currentAmount: 10576,
+                    targetAmount: 20000,
+                  },
+                  {
+                    id: "goal2",
+                    name: "House",
+                    icon: "house",
+                    currentAmount: 54637,
+                    targetAmount: 180000,
+                  },
+                  {
+                    id: "goal3",
+                    name: "Camera",
+                    icon: "camera",
+                    currentAmount: 983.75,
+                    targetAmount: 4650,
+                  },
+                  {
+                    id: "goal4",
+                    name: "Car",
+                    icon: "camera",
+                    currentAmount: 15000,
+                    targetAmount: 100000,
+                  },
+                  {
+                    id: "goal5",
+                    name: "Trip",
+                    icon: "trip",
+                    currentAmount: 10576,
+                    targetAmount: 20000,
+                  },
+                ]}
+              />
             </div>
           </div>
         </main>

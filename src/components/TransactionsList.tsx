@@ -40,29 +40,29 @@ const TransactionsList = ({ data }: TransactionsListProps) => {
     switch (type) {
       case "transfer":
         return (
-          <ArrowRightIcon className="w-4 h-4 text-gray-500 dark:text-[#DAD4F4]" />
+          <ArrowRightIcon className="w-4 h-4 text-[#A195AD]" />
         );
       case "taxi":
         return (
-          <TruckIcon className="w-4 h-4 text-gray-500 dark:text-[#DAD4F4]" />
+          <TruckIcon className="w-4 h-4 text-[#A195AD]" />
         );
       case "supermarket":
         return (
-          <ShoppingBagIcon className="w-4 h-4 text-gray-500 dark:text-[#DAD4F4]" />
+          <ShoppingBagIcon className="w-4 h-4 text-[#A195AD]" />
         );
       case "reward":
         return (
-          <CurrencyDollarIcon className="w-4 h-4 text-gray-500 dark:text-[#DAD4F4]" />
+          <CurrencyDollarIcon className="w-4 h-4 text-[#A195AD]" />
         );
       default:
         return (
-          <CurrencyDollarIcon className="w-4 h-4 text-gray-500 dark:text-[#DAD4F4]" />
+          <CurrencyDollarIcon className="w-4 h-4 text-[#A195AD]" />
         );
     }
   };
 
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[320px] overflow-hidden flex flex-col">
+    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[280px] overflow-hidden flex flex-col">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">Transactions</h3>
         <select
@@ -83,9 +83,9 @@ const TransactionsList = ({ data }: TransactionsListProps) => {
       <div className="flex-1 overflow-y-auto" style={{
         scrollbarWidth: "none",
       }}>
-        <div className="space-y-2">
+        <div className="space-y-1">
           {currentData.map((transaction) => (
-            <div key={transaction.id} className="pb-2 border-b-[0.5px] border-gray-100 dark:border-gray-700 last:border-b-0">
+            <div key={transaction.id} className="pb-1 border-b-[0.5px] border-gray-100 dark:border-gray-700 last:border-b-0">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Avatar>
