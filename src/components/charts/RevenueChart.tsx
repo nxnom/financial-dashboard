@@ -48,7 +48,7 @@ const RevenueChart = ({ data }: { data: DataPoint[] }) => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[334px]">
+    <div className="flex flex-col bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[320px]">
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-lg font-medium">Revenue analysis</h3>
         <div className="flex items-center space-x-4">

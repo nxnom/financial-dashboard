@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowUpIcon, ArrowDownIcon } from "@heroicons/react/24/solid";
 import Pagination from "./ui/Pagination";
 import { classNames } from "../utils/classNames";
+import Avatar from "./ui/Avatar";
 
 interface Investment {
   id: string;
@@ -10,7 +11,7 @@ interface Investment {
   price: number;
   change: number;
   changeAmount: number;
-  logo?: string;
+  logo: string;
 }
 
 interface InvestmentListProps {
@@ -40,7 +41,7 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[340px] overflow-hidden flex flex-col">
+    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[320px] overflow-hidden flex flex-col">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">Investment</h3>
         <select
@@ -59,20 +60,16 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
         </select>
       </div>
 
-      <div className="flex-1 overflow-y-auto">
-        <div className="space-y-3">
+      <div className="flex-1 overflow-y-auto" style={{
+        scrollbarWidth: "none",
+      }}>
+        <div className="space-y-2">
           {currentData.map((investment) => (
-            <div key={investment.id} className="pb-3 border-b-[0.5px] border-gray-100 dark:border-gray-700 last:border-b-0">
+            <div key={investment.id} className="pb-2 border-b-[0.5px] border-gray-100 dark:border-gray-700 last:border-b-0">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div
-                    className={classNames(
-                      "w-8 h-8 rounded-full flex items-center justify-center mr-3",
-                      "bg-gradient-to-r from-[#EFF4FE] to-[#EBDBFE] dark:from-[#5362B3] dark:to-[#6E50B5]",
-                    )}
-                  >
-                    {investment.logo ? (
-                      <img
+                  <Avatar>
+                    {<img
                         src={investment.logo}
                         alt={investment.symbol}
                         className={classNames(
@@ -80,18 +77,13 @@ const InvestmentList = ({ data }: InvestmentListProps) => {
                           investment.symbol === "AAPL" && "w-4 h-4",
                           investment.symbol === "NFLX" && "w-6 h-6",
                         )}
-                      />
-                    ) : (
-                      <span className="text-xs font-bold">
-                        {investment.symbol.charAt(0)}
-                      </span>
-                    )}
-                  </div>
+                      />}
+                  </Avatar>
                   <div>
-                    <div className="font-medium text-sm">
+                    <div className="font-medium text-sm line-clamp-1">
                       {investment.symbol}
                     </div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                    <div className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">
                       {investment.name}
                     </div>
                   </div>

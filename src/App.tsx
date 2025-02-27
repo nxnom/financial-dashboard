@@ -36,7 +36,7 @@ function AppContent() {
       </style>
       <div className="flex">
         <Sidebar />
-        <main className="flex-1 p-6 ml-64">
+        <main className="flex-1 px-6 pb-6 ml-64">
           <Header />
 
           <div className="flex gap-3">
@@ -268,7 +268,7 @@ function AppContent() {
                           id: "aapl",
                           symbol: "AAPL",
                           name: "Apple Inc.",
-                          price: 3204.05,
+                          price: 3114.5,
                           change: 2.89,
                           changeAmount: 92.59,
                           logo: "/apple-logo.png",

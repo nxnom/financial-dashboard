@@ -29,7 +29,7 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
   const currentData = data[selectedPeriod];
 
   return (
-    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[340px]">
+    <div className="bg-white dark:bg-[#56459E] rounded-2xl p-4 h-[320px]">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">Expenses</h3>
         <select
@@ -44,7 +44,7 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
         </select>
       </div>
 
-      <div className="flex">
+      <div className="flex items-center justify-center">
         <div className="w-4/10 relative">
           <ResponsiveContainer width="100%" height={200}>
             <PieChart>
@@ -88,7 +88,7 @@ const ExpensesBreakdown = ({ data }: ExpensesBreakdownProps) => {
         </div>
       </div>
 
-      <div className="text-sm text-gray-500 dark:text-gray-400 mt-4 text-center">
+      <div className="text-sm text-gray-500 dark:text-gray-400 mb-4 text-center">
         You have spent {currentData.change} money this week than last week.
       </div>
     </div>
