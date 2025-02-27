@@ -22,7 +22,7 @@ const Header = () => {
         <div className="h-8 flex items-center space-x-1.5 rounded-lg bg-white dark:bg-[#56459E] px-4 py-2 border border-gray-200 dark:border-gray-700">
           <div className="relative flex items-center space-x-3 mr-16">
             <img
-              src="https://images.vexels.com/media/users/3/157837/isolated/preview/db181fb308b9a32197d9c3cadc58c4d3-asymmetric-cut-hair-woman-avatar.png"
+              src="/avatar.png"
               alt="Profile"
               className="w-16 h-16 absolute -left-6"
             />

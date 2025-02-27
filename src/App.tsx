@@ -8,6 +8,7 @@ import FinancialAnalysis from "./components/charts/FinancialAnalysis";
 import ExpensesBreakdown from "./components/ExpensesBreakdown";
 import TransactionsList from "./components/TransactionsList";
 import InvestmentList from "./components/InvestmentList";
+import MyCards from "./components/MyCards";
 
 function App() {
   return (
@@ -87,7 +88,6 @@ function AppContent() {
                 />
               </div>
 
-              {/* Charts section */}
               <div className="grid grid-cols-3 gap-3">
                 <div className="col-span-2">
                   <RevenueChart
@@ -131,7 +131,6 @@ function AppContent() {
                 </div>
               </div>
 
-              {/* Bottom section */}
               <div className="grid grid-cols-24 gap-3">
                 <div className="col-span-9">
                   <ExpensesBreakdown
@@ -383,10 +382,28 @@ function AppContent() {
               </div>
             </div>
 
-            {/* Right group - Cards and transfers */}
-            <div className="flex-1 space-y-6">
-              {/* <MyCards />
-              <QuickTransfers />
+            <div className="flex-1 space-y-3">
+              <MyCards 
+                cards={[
+                  {
+                    type: "visa",
+                    number: "4654536740550556",
+                    expiryDate: "05/24",
+                    cardholderName: "Michaela Evans",
+                    balance: 5089.56,
+                    color: "bg-gradient-to-r from-[#64BCFF] to-[#A13FFC]"
+                  },
+                  {
+                    type: "mastercard",
+                    number: "5317729045812047",
+                    expiryDate: "09/25",
+                    cardholderName: "Michaela Evans",
+                    balance: 3456.78,
+                    color: "bg-gradient-to-r from-[#C56BA9] to-[#F23E6C]"
+                  }
+                ]}
+              />
+              {/* <QuickTransfers />
               <Goals /> */}
             </div>
           </div>
