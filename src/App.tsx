@@ -39,21 +39,48 @@ function AppContent() {
               <div className="grid grid-cols-3 gap-3">
                 <StatCard
                   title="Income"
-                  amount={6558.67}
-                  percentageChange={16}
-                  chartData={[0, 30, 25, 29, 15, 33, 50, 35, 55]}
+                  data={{
+                    thisMonth: {
+                      amount: 6558.67,
+                      percentageChange: 16,
+                      chartData: [0, 30, 25, 29, 15, 33, 50, 35, 55]
+                    },
+                    previousMonth: {
+                      amount: 5890.42,
+                      percentageChange: -40,
+                      chartData: [0, 25, 20, 35, 22, 28, 45, 30, 50]
+                    }
+                  }}
                 />
                 <StatCard
                   title="Expenses"
-                  amount={1420.05}
-                  percentageChange={-36}
-                  chartData={[0, 28, 22, 26, 14, 31, 48]}
+                  data={{
+                    thisMonth: {
+                      amount: 1420.05,
+                      percentageChange: -36,
+                      chartData: [0, 28, 22, 26, 14, 31, 48]
+                    },
+                    previousMonth: {
+                      amount: 1850.32,
+                      percentageChange: -28,
+                      chartData: [0, 35, 30, 40, 32, 38, 52]
+                    }
+                  }}
                 />
                 <StatCard
                   title="Investment"
-                  amount={950.35}
-                  percentageChange={12}
-                  chartData={[0, 16, 14, 25, 20, 21, 12, 30, 25, 60]}
+                  data={{
+                    thisMonth: {
+                      amount: 950.35,
+                      percentageChange: 12,
+                      chartData: [0, 16, 14, 25, 20, 21, 12, 30, 25, 60]
+                    },
+                    previousMonth: {
+                      amount: 875.20,
+                      percentageChange: 8,
+                      chartData: [0, 12, 10, 20, 15, 18, 10, 25, 20, 50]
+                    }
+                  }}
                 />
               </div>
 
