@@ -35,18 +35,18 @@ const Header = () => {
         />
       </div>
 
-      <div className="hidden items-center space-x-4 md:flex">
+      <div className="flex items-center space-x-4">
         <div className="relative">
           <input
             type="text"
             placeholder="Search..."
-            className="h-8 rounded-lg border border-gray-200 bg-white py-2 pr-10 pl-4 text-sm placeholder:text-gray-300 focus:outline-none dark:border-gray-700 dark:bg-[#56459E] dark:placeholder:text-gray-500"
+            className="h-8 w-38 rounded-lg border border-gray-200 bg-white py-2 pr-10 pl-4 text-sm placeholder:text-gray-300 focus:outline-none md:w-auto dark:border-gray-700 dark:bg-[#56459E] dark:placeholder:text-gray-500"
           />
           <MagnifyingGlassIcon className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
         </div>
 
-        <div className="flex h-8 items-center space-x-1.5 rounded-lg border border-gray-200 bg-white px-4 py-2 dark:border-gray-700 dark:bg-[#56459E]">
-          <div className="relative mr-16 flex items-center space-x-3">
+        <div className="flex h-8 items-center space-x-1.5 rounded-lg border-gray-200 py-2 lg:border lg:bg-white lg:px-4 dark:border-gray-700 dark:bg-[#56459E]">
+          <div className="relative mr-12 hidden items-center space-x-3 lg:flex">
             <img
               src="/avatar.png"
               alt="Profile"
@@ -64,11 +64,6 @@ const Header = () => {
             </span>
           </button>
         </div>
-      </div>
-
-      <div className="flex items-center space-x-1 md:hidden">
-        <img src="/avatar.png" alt="Profile" className="w-10 object-contain" />
-        <p className="text-sm font-medium">Hello, Michaela!</p>
       </div>
     </header>
   );
