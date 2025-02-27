@@ -61,22 +61,26 @@ function App() {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-                <div className="lg:col-span-1">
-                  <ExpensesBreakdown data={mockData.expensesBreakdown} />
-                </div>
                 <div className="lg:col-span-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <TransactionsList data={mockData.transactions as unknown as TransactionsListProps['data']} />
-                    <InvestmentList data={mockData.investments} />
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-7 gap-3">
+                    <div className="xl:col-span-4">
+                      <ExpensesBreakdown data={mockData.expensesBreakdown} />
+                    </div>
+                    <div className="xl:col-span-3">
+                      <TransactionsList data={mockData.transactions as unknown as TransactionsListProps['data']} />
+                    </div>
                   </div>
+                </div>
+                <div className="lg:col-span-1">
+                  <InvestmentList data={mockData.investments} />
                 </div>
               </div>
             </div>
 
-            <div className="w-full xl:flex-1 xl:max-w-[350px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-1 gap-2">
+            <div className="w-full xl:flex-1 xl:max-w-[400px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-1 gap-2">
               <MyCards cards={mockData.cards as unknown as Card[]} />
               <QuickTransfers contacts={mockData.contacts} />
-              <Goals 
+              <Goals
                 goals={mockData.goals as Goal[]}
               />
             </div>
