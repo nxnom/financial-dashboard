@@ -82,11 +82,11 @@ const Sidebar = () => {
             onClick={toggleDarkMode}
             className="flex items-center p-3 gap-x-4 cursor-pointer"
           >
-            <div className="w-10 h-5 rounded-full bg-gray-200 dark:bg-gray-700 overflow-visible">
+            <div className="w-10 h-5 rounded-full bg-gray-200 dark:bg-[#5B48A8] overflow-visible">
               <div
                 className={classNames(
                   "w-5 h-5 rounded-full transform transition-transform",
-                  "bg-gradient-to-r from-purple-500 to-pink-500",
+                  "bg-gradient-to-r from-[#8CBDF8] to-[#9F54FF] dark:from-[#85BEFA] dark:to-[#B473FE]",
                   isDarkMode ? "translate-x-6" : "",
                 )}
               />
