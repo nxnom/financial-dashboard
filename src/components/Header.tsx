@@ -6,7 +6,7 @@ import {
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-10 -mx-6 px-6 pt-4 pb-8 bg-inherit flex items-center justify-between dark:text-[#DFDDEB]">
+    <header className="sticky top-0 z-10 -mx-6 px-6 pt-4 pb-8 bg-inherit flex items-center justify-between dark:text-[#DFDDEB] dark:bg-[#392D6B] bg-[#F7F6FB]">
       <h1 className="text-2xl font-semibold">Dashboard</h1>
 
       <div className="flex items-center space-x-4">

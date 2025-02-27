@@ -6,6 +6,8 @@ import StatCard from "./components/cards/StatCard";
 import RevenueChart from "./components/charts/RevenueChart";
 import FinancialAnalysis from "./components/charts/FinancialAnalysis";
 import ExpensesBreakdown from "./components/ExpensesBreakdown";
+import TransactionsList from "./components/TransactionsList";
+import InvestmentList from "./components/InvestmentList";
 
 function App() {
   return (
@@ -130,39 +132,254 @@ function AppContent() {
               </div>
 
               {/* Bottom section */}
-              <div className="grid grid-cols-12 gap-3">
-                <div className="col-span-5">
-                  <ExpensesBreakdown 
+              <div className="grid grid-cols-24 gap-3">
+                <div className="col-span-9">
+                  <ExpensesBreakdown
                     data={{
                       thisMonth: {
                         total: 1525.61,
                         change: "16% less",
                         categories: [
-                          { name: "Supermarkets", value: 186.65, color: "#5667FF" },
-                          { name: "Transfers", value: 207.82, color: "#64C8FF" },
-                          { name: "Restaurants", value: 197.25, color: "#9D50FF" },
-                          { name: "Cash", value: 48.00, color: "#E661FF" },
+                          {
+                            name: "Supermarkets",
+                            value: 186.65,
+                            color: "#5667FF",
+                          },
+                          {
+                            name: "Transfers",
+                            value: 207.82,
+                            color: "#64C8FF",
+                          },
+                          {
+                            name: "Restaurants",
+                            value: 197.25,
+                            color: "#9D50FF",
+                          },
+                          { name: "Cash", value: 48.0, color: "#E661FF" },
                           { name: "Study", value: 100.85, color: "#FF54B0" },
-                          { name: "Other", value: 93.04, color: "#392D6B" }
-                        ]
+                          { name: "Other", value: 93.04, color: "#392D6B" },
+                        ],
                       },
                       previousMonth: {
                         total: 1820.45,
                         change: "8% more",
                         categories: [
-                          { name: "Supermarkets", value: 220.30, color: "#5667FF" },
-                          { name: "Transfers", value: 245.15, color: "#64C8FF" },
-                          { name: "Restaurants", value: 310.50, color: "#9D50FF" },
-                          { name: "Cash", value: 380.00, color: "#E661FF" },
-                          { name: "Study", value: 550.20, color: "#FF54B0" },
-                          { name: "Other", value: 114.30, color: "#392D6B" }
-                        ]
-                      }
+                          {
+                            name: "Supermarkets",
+                            value: 220.3,
+                            color: "#5667FF",
+                          },
+                          {
+                            name: "Transfers",
+                            value: 245.15,
+                            color: "#64C8FF",
+                          },
+                          {
+                            name: "Restaurants",
+                            value: 310.5,
+                            color: "#9D50FF",
+                          },
+                          { name: "Cash", value: 380.0, color: "#E661FF" },
+                          { name: "Study", value: 550.2, color: "#FF54B0" },
+                          { name: "Other", value: 114.3, color: "#392D6B" },
+                        ],
+                      },
                     }}
                   />
                 </div>
-                {/* <TransactionsList />
-                <InvestmentList /> */}
+                <div className="col-span-7">
+                  <TransactionsList
+                    data={{
+                      today: [
+                        {
+                          id: "t1",
+                          name: "Alex T.",
+                          category: "Transfers",
+                          amount: 300.0,
+                          isDebit: false,
+                          type: "transfer",
+                          paymentMethod: "Debit card",
+                        },
+                        {
+                          id: "t2",
+                          name: "Uber",
+                          category: "Taxi",
+                          amount: 19.84,
+                          isDebit: true,
+                          type: "taxi",
+                          paymentMethod: "Debit card",
+                        },
+                        {
+                          id: "t3",
+                          name: "Metro",
+                          category: "Supermarkets",
+                          amount: 85.29,
+                          isDebit: true,
+                          type: "supermarket",
+                          paymentMethod: "Debit card",
+                        },
+                        {
+                          id: "t4",
+                          name: "Cashback",
+                          category: "Rewards",
+                          amount: 4.5,
+                          isDebit: false,
+                          type: "reward",
+                          paymentMethod: "Debit card",
+                        },
+                      ],
+                      yesterday: [
+                        {
+                          id: "y1",
+                          name: "Netflix",
+                          category: "Entertainment",
+                          amount: 12.99,
+                          isDebit: true,
+                          type: "reward",
+                          paymentMethod: "Debit card",
+                        },
+                        {
+                          id: "y2",
+                          name: "Starbucks",
+                          category: "Restaurants",
+                          amount: 8.75,
+                          isDebit: true,
+                          type: "supermarket",
+                          paymentMethod: "Debit card",
+                        },
+                        {
+                          id: "y3",
+                          name: "Salary",
+                          category: "Income",
+                          amount: 2500.0,
+                          isDebit: false,
+                          type: "transfer",
+                          paymentMethod: "Direct deposit",
+                        },
+                      ],
+                    }}
+                  />
+                </div>
+                <div className="col-span-8">
+                  <InvestmentList
+                    data={{
+                      today: [
+                        {
+                          id: "aapl",
+                          symbol: "AAPL",
+                          name: "Apple Inc.",
+                          price: 3204.05,
+                          change: 2.89,
+                          changeAmount: 92.59,
+                          logo: "/apple-logo.png",
+                        },
+                        {
+                          id: "tsla",
+                          symbol: "TSLA",
+                          name: "Tesla",
+                          price: 8547.82,
+                          change: -1.31,
+                          changeAmount: -111.98,
+                          logo: "/tesla-logo.png",
+                        },
+                        {
+                          id: "nflx",
+                          symbol: "NFLX",
+                          name: "Netflix",
+                          price: 1210,
+                          change: -0.58,
+                          changeAmount: -7.02,
+                          logo: "/netflix-logo.png",
+                        },
+                        {
+                          id: "amzn",
+                          symbol: "AMZN",
+                          name: "Amazon",
+                          price: 14367.75,
+                          change: 1.44,
+                          changeAmount: 206.89,
+                          logo: "/amazon-logo.png",
+                        },
+                      ],
+                      yesterday: [
+                        {
+                          id: "aapl",
+                          symbol: "AAPL",
+                          name: "Apple Inc.",
+                          price: 3111.46,
+                          change: 1.75,
+                          changeAmount: 53.67,
+                          logo: "/apple-logo.png",
+                        },
+                        {
+                          id: "tsla",
+                          symbol: "TSLA",
+                          name: "Tesla",
+                          price: 8659.8,
+                          change: 0.42,
+                          changeAmount: 36.25,
+                          logo: "/tesla-logo.png",
+                        },
+                        {
+                          id: "nflx",
+                          symbol: "NFLX",
+                          name: "Netflix",
+                          price: 1217.02,
+                          change: -0.22,
+                          changeAmount: -2.68,
+                          logo: "/netflix-logo.png",
+                        },
+                        {
+                          id: "amzn",
+                          symbol: "AMZN",
+                          name: "Amazon",
+                          price: 14160.86,
+                          change: 0.89,
+                          changeAmount: 125.32,
+                          logo: "/amazon-logo.png",
+                        },
+                      ],
+                      week: [
+                        {
+                          id: "aapl",
+                          symbol: "AAPL",
+                          name: "Apple Inc.",
+                          price: 3185.1,
+                          change: 1.41,
+                          changeAmount: 45.36,
+                          logo: "/apple-logo.png",
+                        },
+                        {
+                          id: "tsla",
+                          symbol: "TSLA",
+                          name: "Tesla",
+                          price: 8748.39,
+                          change: 0.17,
+                          changeAmount: 14.99,
+                          logo: "/tesla-logo.png",
+                        },
+                        {
+                          id: "nflx",
+                          symbol: "NFLX",
+                          name: "Netflix",
+                          price: 1221.1,
+                          change: -0.1,
+                          changeAmount: -1.22,
+                          logo: "/netflix-logo.png",
+                        },
+                        {
+                          id: "amzn",
+                          symbol: "AMZN",
+                          name: "Amazon",
+                          price: 14150.37,
+                          change: 0.94,
+                          changeAmount: 122.24,
+                          logo: "/amazon-logo.png",
+                        },
+                      ],
+                    }}
+                  />
+                </div>
               </div>
             </div>
 

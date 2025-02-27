@@ -29,7 +29,7 @@ const StatCard = ({ title, data }: StatCardProps) => {
   const chartData = currentData.chartData.map((value) => ({ value }));
 
   return (
-    <div className="relative overflow-hidden bg-white dark:bg-[#56459E] rounded-2xl p-4 border border-gray-100 dark:border-0">
+    <div className="relative overflow-hidden bg-white dark:bg-[#56459E] rounded-2xl p-4 border border-gray-100 dark:border-0 h-[159px]">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">{title}</h3>
         <select
@@ -61,9 +61,9 @@ const StatCard = ({ title, data }: StatCardProps) => {
           )}
         >
           {isPositive ? (
-            <ArrowUpIcon className="w-3 h-3 mr-0.5" />
+            <ArrowUpIcon className="w-3 h-3 mr-0.5 rotate-45" />
           ) : (
-            <ArrowDownIcon className="w-3 h-3 mr-0.5" />
+            <ArrowDownIcon className="w-3 h-3 mr-0.5 -rotate-45" />
           )}
           <span className="text-[10px]">
             {isPositive ? "+" : ""}
