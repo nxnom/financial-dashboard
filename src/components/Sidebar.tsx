@@ -17,7 +17,7 @@ const Sidebar = () => {
   ]
 
   return (
-    <aside className="fixed left-0 top-0 w-64 h-screen bg-white dark:bg-[#1F1D2B]">
+    <aside className="fixed left-0 top-0 w-64 h-screen bg-white dark:bg-[#2D2351]">
       <div className="flex items-center mb-8 px-6 pt-6">
         <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
           <span className="text-white font-bold">W</span>
