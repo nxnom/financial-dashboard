@@ -127,10 +127,10 @@ function MenuItem({ icon: Icon, label, badge, active }: MenuItemProps) {
         setSidebarOpen(false);
       }}
       className={classNames(
-        "flex items-center bg-gradient-to-r px-7 py-3",
-        active
-          ? "from-[#E9F3FE] to-[#DED3FB] dark:from-[#2E4975] dark:to-[#7B42C6]"
-          : "hover:from-[#E9F3FE] hover:to-[#DED3FB] hover:dark:from-[#2E4975] hover:dark:to-[#7B42C6]",
+        "flex items-center border-r-4 border-transparent bg-gradient-to-r px-7 py-3 text-gray-900 transition-colors duration-300 dark:text-white",
+        "hover:border-[#9C9CEE] hover:from-[#E9F3FE] hover:to-[#DED3FB] hover:dark:border-[#8426F3] hover:dark:from-[#2E4975] hover:dark:to-[#7B42C6]",
+        active &&
+          "border-[#9C9CEE] from-[#E9F3FE] to-[#DED3FB] dark:border-[#8426F3] dark:from-[#2E4975] dark:to-[#7B42C6]",
       )}
     >
       <Icon className="h-5 w-5" />
