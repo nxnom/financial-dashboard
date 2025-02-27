@@ -1,20 +1,30 @@
-import { HomeIcon, WalletIcon, ArrowPathIcon, GiftIcon, CreditCardIcon, UserIcon, QuestionMarkCircleIcon, Cog6ToothIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline'
-import { useTheme } from '../contexts/ThemeContext'
-import { classNames } from '../utils/classNames'
+import {
+  HomeIcon,
+  WalletIcon,
+  ArrowPathIcon,
+  GiftIcon,
+  CreditCardIcon,
+  UserIcon,
+  QuestionMarkCircleIcon,
+  Cog6ToothIcon,
+  ArrowRightStartOnRectangleIcon,
+} from "@heroicons/react/24/outline";
+import { useTheme } from "../contexts/ThemeContext";
+import { classNames } from "../utils/classNames";
 
 const Sidebar = () => {
-  const { isDarkMode, toggleDarkMode } = useTheme()
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
   const menuItems = [
-    { icon: HomeIcon, label: 'Dashboard', active: true },
-    { icon: WalletIcon, label: 'Wallet' },
-    { icon: ArrowPathIcon, label: 'Transactions', badge: 1 },
-    { icon: GiftIcon, label: 'Cashback', badge: 4 },
-    { icon: CreditCardIcon, label: 'Payments' },
-    { icon: ArrowPathIcon, label: 'Investment' },
-    { icon: UserIcon, label: 'Profile' },
-    { icon: QuestionMarkCircleIcon, label: 'Support' },
-  ]
+    { icon: HomeIcon, label: "Dashboard", active: true },
+    { icon: WalletIcon, label: "Wallet" },
+    { icon: ArrowPathIcon, label: "Transactions", badge: 1 },
+    { icon: GiftIcon, label: "Cashback", badge: 4 },
+    { icon: CreditCardIcon, label: "Payments" },
+    { icon: ArrowPathIcon, label: "Investment" },
+    { icon: UserIcon, label: "Profile" },
+    { icon: QuestionMarkCircleIcon, label: "Support" },
+  ];
 
   return (
     <aside className="fixed left-0 top-0 w-64 h-screen bg-white dark:bg-[#2D2351]">
@@ -43,24 +53,28 @@ const Sidebar = () => {
           className="flex items-center p-3 gap-x-4 cursor-pointer"
         >
           <div className="w-10 h-5 rounded-full bg-gray-200 dark:bg-gray-700 overflow-visible">
-            <div className={classNames(
-              'w-5 h-5 rounded-full transform transition-transform',
-              'bg-gradient-to-r from-purple-500 to-pink-500',
-              isDarkMode ? 'translate-x-6' : ''
-            )} />
+            <div
+              className={classNames(
+                "w-5 h-5 rounded-full transform transition-transform",
+                "bg-gradient-to-r from-purple-500 to-pink-500",
+                isDarkMode ? "translate-x-6" : "",
+              )}
+            />
           </div>
-          <span className="mr-3">Switch to {isDarkMode ? 'light' : 'dark'}</span>
+          <span className="mr-3">
+            Switch to {isDarkMode ? "light" : "dark"}
+          </span>
         </button>
       </div>
     </aside>
-  )
-}
+  );
+};
 
 interface MenuItemProps {
-  icon: React.ElementType
-  label: string
-  badge?: number
-  active?: boolean
+  icon: React.ElementType;
+  label: string;
+  badge?: number;
+  active?: boolean;
 }
 
 function MenuItem({ icon: Icon, label, badge, active }: MenuItemProps) {
@@ -68,26 +82,28 @@ function MenuItem({ icon: Icon, label, badge, active }: MenuItemProps) {
     <a
       href="#"
       className={classNames(
-        'flex items-center px-7 py-3 bg-gradient-to-r',
+        "flex items-center px-7 py-3 bg-gradient-to-r",
         active
-          ? 'from-[#E9F3FE] to-[#DED3FB] dark:from-[#2E4975] dark:to-[#7B42C6]'
-          : 'hover:from-[#E9F3FE] hover:to-[#DED3FB] hover:dark:from-[#2E4975] hover:dark:to-[#7B42C6]'
+          ? "from-[#E9F3FE] to-[#DED3FB] dark:from-[#2E4975] dark:to-[#7B42C6]"
+          : "hover:from-[#E9F3FE] hover:to-[#DED3FB] hover:dark:from-[#2E4975] hover:dark:to-[#7B42C6]",
       )}
     >
       <Icon className="w-5 h-5" />
       <span className="ml-3">{label}</span>
       {badge && (
-        <span className={classNames(
-          'ml-auto rounded-full px-2 py-0.5 text-xs',
-          active
-            ? 'bg-white/20 text-white'
-            : 'bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400'
-        )}>
+        <span
+          className={classNames(
+            "ml-auto rounded-full px-2 py-0.5 text-xs",
+            active
+              ? "bg-white/20 text-white"
+              : "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400",
+          )}
+        >
           {badge}
         </span>
       )}
     </a>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;
