@@ -81,7 +81,7 @@ const Sidebar = () => {
           <MenuItem icon={ArrowRightStartOnRectangleIcon} label="Log out" />
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full p-6">
+        <div className="relative md:absolute bottom-0 left-0 w-full p-6">
           <button
             type="button"
             onClick={toggleDarkMode}
